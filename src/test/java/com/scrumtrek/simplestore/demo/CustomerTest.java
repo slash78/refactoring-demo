@@ -4,6 +4,7 @@ import com.scrumtrek.simplestore.Customer;
 import com.scrumtrek.simplestore.Movie;
 import com.scrumtrek.simplestore.PriceCodes;
 import com.scrumtrek.simplestore.Rental;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
@@ -12,13 +13,27 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assume.assumeNotNull;
 
 public class CustomerTest {
+    	Movie movCinderella;
+		Movie movStarWars;
+		Movie movGladiator;
+
+    @Before
+    public void Before()
+    {
+        // Create movies
+		movCinderella = new Movie("Cinderella", PriceCodes.Childrens);
+		movStarWars = new Movie("Star Wars", PriceCodes.Regular);
+		movGladiator = new Movie("Gladiator", PriceCodes.NewRelease);
+
+    }
+
     @Test
     public void shouldCreatedWithName_WhenCtrRun() {
         // region Given
         String name = "Ivan";
         // endregion
 
-        // region Wen
+        // region When
         Customer sut = new Customer(name);
         // endregion
 
